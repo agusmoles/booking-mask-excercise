@@ -1,6 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { DestinationInputs, PassengersSelector } from "../../components";
+import {
+  Button,
+  DestinationInputs,
+  PassengersSelector,
+} from "../../components";
 import { Links } from "./Links";
 
 const FlightTab = () => {
@@ -13,6 +17,10 @@ const FlightTab = () => {
     children: 0,
     infants: 0,
   });
+
+  const onSearch = () => {
+    console.table({ from, to, outboundDate, returnDate, passengers });
+  };
 
   return (
     <Banner>
@@ -30,6 +38,8 @@ const FlightTab = () => {
         />
 
         <Links />
+
+        <SearchButton onClick={onSearch}>Search</SearchButton>
       </TabContainer>
     </Banner>
   );
@@ -47,6 +57,7 @@ const TabContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 5px;
+  grid-row-gap: 17px;
   grid-template-areas:
     "destination flight-time passengers"
     "links links search";
@@ -61,6 +72,10 @@ const Banner = styled.div`
   height: 350px;
   width: 100%;
   margin-top: 10vh;
+`;
+
+const SearchButton = styled(Button)`
+  grid-area: search;
 `;
 
 export { FlightTab };
