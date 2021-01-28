@@ -19,7 +19,9 @@ const PassengerCounts = ({ title, description, counter, setCounter }) => {
       </PassengerDescription>
 
       <Counter>
-        <CounterButton onClick={decrementCounter}>-</CounterButton>
+        <CounterButton disabled={counter === 0} onClick={decrementCounter}>
+          -
+        </CounterButton>
         <input
           aria-label={`${title} passengers`}
           type="text"
