@@ -39,6 +39,7 @@ const LinksContainer = styled.div`
   grid-area: links;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   a {
     position: relative;

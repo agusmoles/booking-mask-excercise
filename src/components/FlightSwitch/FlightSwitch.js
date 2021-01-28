@@ -42,7 +42,7 @@ const BothWays = keyframes`
     }
     100% {
         left: 49%;
-        width: 51%;
+        width: 53%;
     }
 `;
 

@@ -107,7 +107,7 @@ const Datalist = styled.div`
   top: 100%;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 2px 3px 2px ${({ theme }) => theme.colors.placeholder};
   border: 1px solid ${({ theme }) => theme.colors.placeholder};

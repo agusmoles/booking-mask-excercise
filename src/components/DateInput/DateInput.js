@@ -21,7 +21,7 @@ const DateInput = ({ id, value, setValue, label, disabled }) => {
 
 const DateInputWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 100%;
   border: 1px solid ${({ theme }) => theme.colors.placeholder};
 

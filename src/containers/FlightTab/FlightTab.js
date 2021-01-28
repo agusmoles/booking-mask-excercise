@@ -66,9 +66,7 @@ const TabContainer = styled.div`
   padding: 20px;
   background: ${({ theme }) => theme.colors.white};
   width: 100%;
-  height: 100%;
   max-width: 1260px;
-  max-height: 160px;
   border: 1px solid ${({ theme }) => theme.colors.placeholder}55;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -78,6 +76,28 @@ const TabContainer = styled.div`
   grid-template-areas:
     "destination flight-time passengers"
     "links links search";
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.desktopSm}) {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "destination flight-time"
+      "passengers search"
+      "links links";
+    grid-row-gap: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "destination"
+      "flight-time"
+      "passengers"
+      "search"
+      "links";
+    grid-row-gap: 12px;
+  }
 `;
 
 const Banner = styled.div`
@@ -86,7 +106,7 @@ const Banner = styled.div`
   justify-content: center;
   align-items: center;
   background: ${({ theme }) => theme.colors.background};
-  height: 350px;
+  height: 540px;
   width: 100%;
   margin-top: 10vh;
 `;
