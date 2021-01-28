@@ -1,9 +1,28 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { DestinationInputs } from "../../components";
 
 const FlightTab = () => {
+  const [from, setFrom] = useState(null);
+  const [to, setTo] = useState(null);
+  const [outboundDate, setOutboundDate] = useState(null);
+  const [returnDate, setReturnDate] = useState(null);
+  const [passengers, setPassengers] = useState({
+    adults: 1,
+    children: 0,
+    infants: 0,
+  });
+
   return (
     <Banner>
-      <TabContainer></TabContainer>
+      <TabContainer>
+        <DestinationInputs
+          from={from}
+          to={to}
+          setFrom={setFrom}
+          setTo={setTo}
+        />
+      </TabContainer>
     </Banner>
   );
 };
