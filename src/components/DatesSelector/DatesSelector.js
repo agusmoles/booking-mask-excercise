@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { DateInput, FlightSwitch } from "..";
 
@@ -7,9 +6,9 @@ const DatesSelector = ({
   setOutboundDate,
   returnDate,
   setReturnDate,
+  isOneWay,
+  setIsOneWay,
 }) => {
-  const [isOneWay, setIsOneWay] = useState(false);
-
   return (
     <DatesSelectorContainer>
       <DateInput

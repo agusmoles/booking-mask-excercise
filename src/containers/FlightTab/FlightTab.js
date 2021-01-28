@@ -18,9 +18,16 @@ const FlightTab = () => {
     children: 0,
     infants: 0,
   });
+  const [isOneWay, setIsOneWay] = useState(false);
 
   const onSearch = () => {
-    console.table({ from, to, outboundDate, returnDate, passengers });
+    console.table({
+      from,
+      to,
+      outboundDate,
+      returnDate: isOneWay ? null : returnDate,
+      passengers,
+    });
   };
 
   return (
@@ -36,8 +43,10 @@ const FlightTab = () => {
         <DatesSelector
           outboundDate={outboundDate}
           returnDate={returnDate}
+          isOneWay={isOneWay}
           setOutboundDate={setOutboundDate}
           setReturnDate={setReturnDate}
+          setIsOneWay={setIsOneWay}
         />
 
         <PassengersSelector
