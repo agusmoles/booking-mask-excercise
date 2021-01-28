@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { DestinationInputs } from "../../components";
+import { Links } from "./Links";
 
 const FlightTab = () => {
   const [from, setFrom] = useState("");
@@ -22,6 +23,8 @@ const FlightTab = () => {
           setFrom={setFrom}
           setTo={setTo}
         />
+
+        <Links />
       </TabContainer>
     </Banner>
   );
