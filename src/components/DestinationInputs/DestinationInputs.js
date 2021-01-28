@@ -7,7 +7,7 @@ const DestinationContainer = styled.div`
   grid-area: destination;
   display: flex;
 
-  div {
+  & > div {
     &:first-child {
       border-right-style: dotted;
     }

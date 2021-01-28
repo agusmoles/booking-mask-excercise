@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { DestinationInputs } from "../../components";
 
 const FlightTab = () => {
-  const [from, setFrom] = useState(null);
-  const [to, setTo] = useState(null);
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
   const [outboundDate, setOutboundDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
   const [passengers, setPassengers] = useState({

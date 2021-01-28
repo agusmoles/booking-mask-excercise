@@ -5,6 +5,7 @@ export const lightTheme = {
     white: "#fff",
     black: "#000",
     placeholder: "#cdcdcd",
+    main: "#333",
   },
   mediaQueries: {
     mobileXs: `350px`,
