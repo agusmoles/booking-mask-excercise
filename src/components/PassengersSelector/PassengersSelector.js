@@ -47,6 +47,7 @@ const PassengersSelector = ({ passengers, setPassengers }) => {
       <Dropdown visible={isDropdownOpened}>
         {PASSENGER_SEATS.map(({ title, description, counter }) => (
           <PassengerCounts
+            key={title}
             title={title}
             description={description}
             counter={passengers[counter]}
@@ -141,7 +142,6 @@ const CloseButton = styled.button`
   margin-top: -1px;
   height: 62px;
   font-size: 20px;
-  font-weight: 200;
   cursor: pointer;
   transition: all 0.3s ease;
 

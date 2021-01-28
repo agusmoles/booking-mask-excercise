@@ -4,14 +4,15 @@ import {
   Button,
   DestinationInputs,
   PassengersSelector,
+  DatesSelector,
 } from "../../components";
 import { Links } from "./Links";
 
 const FlightTab = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-  const [outboundDate, setOutboundDate] = useState(null);
-  const [returnDate, setReturnDate] = useState(null);
+  const [outboundDate, setOutboundDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
   const [passengers, setPassengers] = useState({
     adults: 1,
     children: 0,
@@ -30,6 +31,13 @@ const FlightTab = () => {
           to={to}
           setFrom={setFrom}
           setTo={setTo}
+        />
+
+        <DatesSelector
+          outboundDate={outboundDate}
+          returnDate={returnDate}
+          setOutboundDate={setOutboundDate}
+          setReturnDate={setReturnDate}
         />
 
         <PassengersSelector

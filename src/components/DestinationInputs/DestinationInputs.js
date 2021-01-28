@@ -2,6 +2,20 @@ import styled from "styled-components";
 import { Plane } from "../Icons";
 import { PlaceInput } from "../";
 
+const DestinationInputs = ({ from, to, setFrom, setTo }) => {
+  return (
+    <DestinationContainer>
+      <PlaceInput id="from" label="From" value={from} setValue={setFrom} />
+
+      <PlaneThumbnail>
+        <Plane />
+      </PlaneThumbnail>
+
+      <PlaceInput id="to" label="To" value={to} setValue={setTo} />
+    </DestinationContainer>
+  );
+};
+
 const DestinationContainer = styled.div`
   position: relative;
   grid-area: destination;
@@ -37,19 +51,4 @@ const PlaneThumbnail = styled.div`
     height: 15px;
   }
 `;
-
-const DestinationInputs = ({ from, to, setFrom, setTo }) => {
-  return (
-    <DestinationContainer>
-      <PlaceInput id="from" label="From" value={from} setValue={setFrom} />
-
-      <PlaneThumbnail>
-        <Plane />
-      </PlaneThumbnail>
-
-      <PlaceInput id="to" label="To" value={to} setValue={setTo} />
-    </DestinationContainer>
-  );
-};
-
 export { DestinationInputs };

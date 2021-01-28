@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import { useClickOutside } from "../../hooks";
+import { CommonInput } from "..";
 
 const PLACES = [
   {
@@ -67,17 +68,16 @@ export const PlaceInput = ({ id, label, value, setValue }) => {
   };
 
   return (
-    <InputWrapper ref={wrapperRef} isPopulated={value !== ""}>
-      <label htmlFor={id}>{label}</label>
-      <input
-        name={id}
+    <InputWrapper ref={wrapperRef}>
+      <CommonInput
         id={id}
+        label={label}
         value={value}
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
+        isPopulated={value !== ""}
         role="listbox"
-        autoComplete="off"
       />
 
       <Datalist isFocused={isFocused}>
@@ -100,48 +100,6 @@ const InputWrapper = styled.div`
   width: 100%;
   height: 100%;
   border: 1px solid ${({ theme }) => theme.colors.placeholder};
-
-  input {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border: 0;
-    font-size: 18px;
-    padding: 0 12px 0 25px;
-    transition: all 0.1s ease;
-
-    &:focus {
-      border-radius: 0;
-      border: 1px solid ${({ theme }) => theme.colors.black};
-    }
-
-    &::-webkit-calendar-picker-indicator {
-      display: none;
-    }
-
-    ${({ isPopulated }) =>
-      isPopulated &&
-      css`
-        padding: 23px 12px 6px 25px;
-      `}
-  }
-
-  label {
-    position: absolute;
-    left: 25px;
-    top: calc(50% - 0.7em);
-    font-size: 18px;
-    color: ${({ theme }) => theme.colors.main};
-    transition: all 0.1s ease;
-
-    ${({ isPopulated }) =>
-      isPopulated &&
-      css`
-        top: 8px;
-        font-size: 12px;
-        opacity: 0.9;
-      `}
-  }
 `;
 
 const Datalist = styled.div`
