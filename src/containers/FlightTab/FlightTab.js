@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { DestinationInputs } from "../../components";
+import { DestinationInputs, PassengersSelector } from "../../components";
 import { Links } from "./Links";
 
 const FlightTab = () => {
@@ -22,6 +22,11 @@ const FlightTab = () => {
           to={to}
           setFrom={setFrom}
           setTo={setTo}
+        />
+
+        <PassengersSelector
+          passengers={passengers}
+          setPassengers={setPassengers}
         />
 
         <Links />
