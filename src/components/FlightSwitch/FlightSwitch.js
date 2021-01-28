@@ -25,7 +25,7 @@ const OneWay = keyframes`
         left: 0;
         width: 100%;
     }
-    100 {
+    100% {
         left: 0;
         width: 50%;
     }
@@ -40,9 +40,9 @@ const BothWays = keyframes`
         left: 0;
         width: 100%;
     }
-    100 {
-        left: 50%;
-        width: 50%;
+    100% {
+        left: 49%;
+        width: 51%;
     }
 `;
 
@@ -104,11 +104,11 @@ const Switch = styled.div`
       isOneWay
         ? css`
             left: 0;
-            animation: ${OneWay} 1s ease forwards;
+            animation: ${OneWay} 0.7s ease forwards;
           `
         : css`
             left: 52%;
-            animation: ${BothWays} 1s ease forwards;
+            animation: ${BothWays} 0.7s ease forwards;
           `}
   }
 `;
