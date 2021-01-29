@@ -48,7 +48,7 @@ export const PlaceInput = ({ id, label, value, setValue }) => {
 
   useEffect(() => {
     const newPlaceIndex = findPlaceIndexByName(value);
-    if (newPlaceIndex) setPlacesCursor();
+    if (newPlaceIndex) setPlacesCursor(newPlaceIndex);
   }, [value]);
 
   return (
