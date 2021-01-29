@@ -48,6 +48,11 @@ const LinksContainer = styled.div`
     text-decoration: none;
     padding-right: 25px;
     margin-right: 20px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
 
     &:after {
       position: absolute;

@@ -1,30 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { useClickOutside } from "../../hooks";
+import { PLACES } from "../../constants";
+import { findPlaceIndexByName } from "../../utils";
 import { CommonInput } from "..";
-
-const PLACES = [
-  {
-    place: "Buenos Aires",
-    code: "BUE",
-  },
-  {
-    place: "New York",
-    code: "NYC",
-  },
-  {
-    place: "New Orleans",
-    code: "MSY",
-  },
-  {
-    place: "Auckland",
-    code: "AKL",
-  },
-  {
-    place: "Cordoba",
-    code: "COR",
-  },
-];
 
 export const PlaceInput = ({ id, label, value, setValue }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -66,6 +45,10 @@ export const PlaceInput = ({ id, label, value, setValue }) => {
     setValue(`${place} (${code})`);
     setPlacesCursor(index);
   };
+
+  useEffect(() => {
+    setPlacesCursor(findPlaceIndexByName(value));
+  }, [value]);
 
   return (
     <InputWrapper ref={wrapperRef}>

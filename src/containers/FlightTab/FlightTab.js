@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 import {
   Button,
   DestinationInputs,
@@ -7,18 +8,45 @@ import {
   DatesSelector,
 } from "../../components";
 import { Links } from "./Links";
+import { findPlaceByCode } from "../../utils";
+
+const getInitialState = ({
+  adults,
+  children,
+  departureDate,
+  flightType,
+  infants,
+  originAndDestination,
+}) => {
+  const [origin, destination] = originAndDestination
+    ? originAndDestination.split("-")
+    : [];
+
+  return {
+    from: origin ? findPlaceByCode(origin) : "",
+    to: destination ? findPlaceByCode(destination) : "",
+    outboundDate: departureDate ? departureDate.split("from-")[1] : "",
+    adults: adults ? adults.split("adults-")[1] : 1,
+    children: children ? children.split("children-")[1] : 0,
+    infants: infants ? infants.split("infants-")[1] : 0,
+    isOneWay: flightType === "Outbound",
+  };
+};
 
 const FlightTab = () => {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-  const [outboundDate, setOutboundDate] = useState("");
+  const params = useParams();
+  const initialState = getInitialState(params);
+
+  const [from, setFrom] = useState(initialState.from);
+  const [to, setTo] = useState(initialState.to);
+  const [outboundDate, setOutboundDate] = useState(initialState.outboundDate);
   const [returnDate, setReturnDate] = useState("");
   const [passengers, setPassengers] = useState({
-    adults: 1,
-    children: 0,
-    infants: 0,
+    adults: initialState.adults,
+    children: initialState.children,
+    infants: initialState.infants,
   });
-  const [isOneWay, setIsOneWay] = useState(false);
+  const [isOneWay, setIsOneWay] = useState(initialState.isOneWay);
 
   const onSearch = () => {
     console.table({

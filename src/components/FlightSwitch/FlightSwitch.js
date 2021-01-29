@@ -67,6 +67,7 @@ const Switch = styled.div`
   svg {
     width: 11px;
     z-index: 11;
+    transition: all 0.4s ease 0.2s;
 
     ${({ isOneWay }) =>
       isOneWay
