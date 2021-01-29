@@ -5,6 +5,11 @@
 In a nutshell, the exercise consists in creating a Booking Mask React Component. Below you can find the Functional and Non Functional require
 ments to be completed in this exercise.
 
+### Considerations
+
+- Didn't make different branches and PRs since I decided it didn't make sense for a hack project like this one.
+- Obviously some tests are missing. I think it is intended to show the way I think about that and how I accomplish it too.
+
 ## General
 
 You have to create a Booking Mask React Component taking the follow one as a base. (Just the flight tab) :
