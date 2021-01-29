@@ -6,5 +6,8 @@ export const findPlaceByCode = (code) => {
   return `${actualPlace.place} (${actualPlace.code})`;
 };
 
-export const findPlaceIndexByName = (completeName) =>
-  PLACES.findIndex(({ code }) => code === completeName.match(/.*\((.*)\)/)[1]);
+export const findPlaceIndexByName = (completeName) => {
+  const validPlace = completeName.match(/.*\((.*)\)/);
+  if (!validPlace) return;
+  return PLACES.findIndex(({ code }) => code === validPlace[1]);
+};
