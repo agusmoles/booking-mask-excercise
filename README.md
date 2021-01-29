@@ -1,4 +1,4 @@
-# Booking Mask Excercise
+# Booking Mask Exercise
 
 ## Summary
 
