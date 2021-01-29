@@ -44,26 +44,28 @@ const PassengersSelector = ({ passengers, setPassengers }) => {
         <DropdownArrow isDropdownOpened={isDropdownOpened} />
       </DropdownButton>
 
-      <Dropdown visible={isDropdownOpened}>
-        {PASSENGER_SEATS.map(({ title, description, counter }) => (
-          <PassengerCounts
-            key={title}
-            title={title}
-            description={description}
-            counter={passengers[counter]}
-            setCounter={(value) =>
-              setPassengers((passengers) => ({
-                ...passengers,
-                [counter]: value,
-              }))
-            }
-          />
-        ))}
+      {isDropdownOpened && (
+        <Dropdown visible={isDropdownOpened}>
+          {PASSENGER_SEATS.map(({ title, description, counter }) => (
+            <PassengerCounts
+              key={title}
+              title={title}
+              description={description}
+              counter={passengers[counter]}
+              setCounter={(value) =>
+                setPassengers((passengers) => ({
+                  ...passengers,
+                  [counter]: value,
+                }))
+              }
+            />
+          ))}
 
-        <CloseButton onClick={() => setIsDropdownOpened(false)}>
-          Close
-        </CloseButton>
-      </Dropdown>
+          <CloseButton onClick={() => setIsDropdownOpened(false)}>
+            Close
+          </CloseButton>
+        </Dropdown>
+      )}
     </PassengersSelectorContainer>
   );
 };

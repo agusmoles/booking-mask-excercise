@@ -19,7 +19,11 @@ const PassengerCounts = ({ title, description, counter, setCounter }) => {
       </PassengerDescription>
 
       <Counter>
-        <CounterButton disabled={counter === 0} onClick={decrementCounter}>
+        <CounterButton
+          aria-label={`Decrement ${title} passengers`}
+          disabled={counter === 0}
+          onClick={decrementCounter}
+        >
           -
         </CounterButton>
         <input
@@ -29,7 +33,12 @@ const PassengerCounts = ({ title, description, counter, setCounter }) => {
           value={counter}
           onChange={onChange}
         />
-        <CounterButton onClick={incrementCounter}>+</CounterButton>
+        <CounterButton
+          aria-label={`Increment ${title} passengers`}
+          onClick={incrementCounter}
+        >
+          +
+        </CounterButton>
       </Counter>
     </PassengerSeats>
   );

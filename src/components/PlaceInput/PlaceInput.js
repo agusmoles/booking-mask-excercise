@@ -8,7 +8,7 @@ import { CommonInput } from "..";
 export const PlaceInput = ({ id, label, value, setValue }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [filteredPlaces, setFilteredPlaces] = useState(PLACES);
-  const [placesCursor, setPlacesCursor] = useState(1);
+  const [placesCursor, setPlacesCursor] = useState(0);
   const wrapperRef = useClickOutside(() => setIsFocused(false));
 
   const onChange = ({ target: { value } }) => {
@@ -64,17 +64,19 @@ export const PlaceInput = ({ id, label, value, setValue }) => {
         role="listbox"
       />
 
-      <Datalist isFocused={isFocused}>
-        {filteredPlaces.map(({ place, code }, index) => (
-          <Option
-            key={code}
-            selected={placesCursor === index}
-            onClick={() => onOptionClick({ place, code }, index)}
-          >
-            {place} <span>{code}</span>
-          </Option>
-        ))}
-      </Datalist>
+      {isFocused && (
+        <Datalist isFocused={isFocused}>
+          {filteredPlaces.map(({ place, code }, index) => (
+            <Option
+              key={code}
+              selected={placesCursor === index}
+              onClick={() => onOptionClick({ place, code }, index)}
+            >
+              {place} <span>{code}</span>
+            </Option>
+          ))}
+        </Datalist>
+      )}
     </InputWrapper>
   );
 };
@@ -95,15 +97,6 @@ const Datalist = styled.div`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 2px 3px 2px ${({ theme }) => theme.colors.placeholder};
   border: 1px solid ${({ theme }) => theme.colors.placeholder};
-
-  ${({ isFocused }) =>
-    isFocused
-      ? css`
-          display: block;
-        `
-      : css`
-          display: none;
-        `}
 
   &:empty {
     display: none;
